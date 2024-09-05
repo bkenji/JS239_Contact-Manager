@@ -189,7 +189,7 @@ export class Controller {
         if (matches.length) {
           this.view.renderContacts(this.view.templates.contactList({contacts : matches}));
         } else {
-          this.view.renderContacts(`<h2 class="no_matches">No contacts starting with "<span>${searchValue}<span>"</h2>`);
+          this.view.renderContacts(`<h2 class="no_matches">No contacts containing "<span>${searchValue}<span>"</h2>`);
         }
       }, 300);
     });
