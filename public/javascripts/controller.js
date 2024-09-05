@@ -270,8 +270,6 @@ export class Controller {
     });
   }
 
-
-
   init() {
     this.handleEvents();
     this.loadContacts();
