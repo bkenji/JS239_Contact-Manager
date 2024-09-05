@@ -32,6 +32,7 @@ export class Controller {
     this.invalidFormHandler();
     this.formInputValidationHandler();
     this.inputKeyDownHandler();
+    this.inputKeyUpHandler();
   }
 
   deleteContactHandler() {
@@ -258,6 +259,18 @@ export class Controller {
       }
     });
   }
+
+  inputKeyUpHandler() {
+    this.view.contactForm.addEventListener('keyup', event => {
+      if (event.target.id === 'tags') {
+        if (event.key === event.key.toUpperCase()) {
+          event.target.value = event.target.value.toLowerCase();
+        }
+      }
+    });
+  }
+
+
 
   init() {
     this.handleEvents();
