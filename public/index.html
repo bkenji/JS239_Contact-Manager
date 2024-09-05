@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Contact Manager</title>
+  <script src="/javascripts/handlebars.js"></script>
+  <script type="module" src="./javascripts/app.js" defer></script>
+  <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body>
+  <header>
+    <h1>Contact Manager</h1>
+    <nav id="navigation">
+      <a href="#" class="add_contact">Add Contact</a>
+      <input type="text" id="search" placeholder="Search">
+      <label for="tags_menu_nav">Sort by tag:</label>
+      <select name="tag_selection" id="tags_menu_nav">
+      </select>
+    </nav>
+  </header>
+  <main>
+    <div id="contact_list" class="show">
+     <div class="no_contacts hide">
+      <h2> There are no contacts.</h2>
+      <a href="#" class="add_contact">Add Contact</a>
+     </div>
+    </div>
+    <div id="contact_form_container" class="hide">
+      <form id="contact_form" class="create_contact hide">
+        <h2>Create Contact</h2>
+        <input name="id" type="hidden" class="id" value="">
+         <dl>
+          <dt>
+            <label for="full_name">Full Name</label>
+          </dt>
+          <dd>
+            <input name="full_name" type="text" id="full_name" pattern="^[a-zA-Z\-'\s]+$" minlength="3" required>
+            <p class="error_message"></p>
+          </dd>
+          <dt>
+            <label for="email">Email address</label>
+          </dt>
+          <dd>
+            <input name="email" type="email" id="email" required>
+            <p class="error_message"></p>
+          </dd>
+          <dt>
+            <label for="phone_number">Phone number</label>
+          </dt>
+          <dd>
+            <input name="phone_number" type="tel" id="phone_number" pattern="^\d{10}$" maxlength="10" required>
+            <p class="error_message"></p>
+          </dd>
+          <dt>
+            <label for="tags">Tags</label>
+          </dt>
+          <dd>
+            <input name="tags" type="text" id="tags" placeholder="Enter tag or choose from below">
+          </dd>
+          <dd>
+            <br>
+            <select name="tag_selection" id="tags_menu">
+            </select>
+          </dd>
+         </dl>
+         <button type="submit">Submit</button>
+         <button type="reset" class="cancel_add">Cancel</button>
+      </form>
+    </div>
+
+  </main>
+
+  <script id="contacts_template" type="text/x-handlebars">
+   <ul>
+    {{#each contacts}}
+      {{> contact}}
+    {{/each}}
+   </ul>
+  </script>
+
+  <script id="contact_partial_template" type="text/x-handlebars">
+    <div class="contact_info" data-id={{id}}>
+      <li>
+        <h3>{{full_name}}</h3>
+        <dl>
+          <dt> <strong>Phone number:</strong></dt>
+          <dd> {{phone_number}}</dd>
+          <dt> <strong>Email:</strong> </dt>
+          <dd> {{email}} </dd>
+          <dt> <strong>Tags:</strong> </dt>
+          <dd> {{tags}}</dd>
+        </dl>
+        <div class="contact-buttons">
+        <button type="button" class="edit_contact">Edit</button>
+        <button type="button" class="delete_contact">Delete</button>
+        </div>
+      </li>
+    </div>
+  </script>
+
+  <script id="tags_partial_template" type="text/x-handlebars">
+    <option value="" label="All tags"></option>
+    {{#each tags}}
+    <option  value="{{.}}">{{.}}</option>  
+    {{/each}}
+  </script>
+
+  <script id="no_contacts_template" type="text/x-handlebars">
+    <div id="contact_list" class="show">
+      <div class="no_contacts">
+       <h2> There are no contacts.</h2>
+       <a href="#" class="add_contact">Add Contact</a>
+      </div>
+  </script>
+
+</body>
+</html>

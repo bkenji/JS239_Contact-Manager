@@ -1,0 +1,37 @@
+[
+  {
+    "full_name": "Pete Hanson",
+    "phone_number": "1213019312",
+    "email": "ph@example.com",
+    "tags": "staff, worker",
+    "id": 1
+  },
+  {
+    "full_name": "Brenno Kaneyasu",
+    "phone_number": "5108095949",
+    "email": "brennokenji@gmail.com",
+    "tags": "family, parent",
+    "id": 2
+  },
+  {
+    "full_name": "Luka Wiesmuller-Kaneyasu",
+    "phone_number": "5108095949",
+    "email": "brennokenji@gmail.com",
+    "tags": "family, child",
+    "id": 3
+  },
+  {
+    "full_name": "Julia Kumi Kaneyasu",
+    "phone_number": "5108095949",
+    "email": "brennokenji@gmail.com",
+    "tags": "family",
+    "id": 5
+  },
+  {
+    "full_name": "Monique Wiesmuller-Kaneyasu",
+    "phone_number": "5108095949",
+    "email": "brennokenji@gmail.com",
+    "tags": "family, parent",
+    "id": 6
+  }
+]
